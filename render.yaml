@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: weathersense
+    name: weather-dashboard
     env: node
     buildCommand: npm run build
     startCommand: npm start
@@ -8,4 +8,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000 
+        value: 10000
+      - key: WEATHER_API_KEY
+        fromService: weather-dashboard
+        fromEnvVar: WEATHER_API_KEY 
